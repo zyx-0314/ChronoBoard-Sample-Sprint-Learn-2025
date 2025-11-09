@@ -6,9 +6,8 @@ WORKDIR /app
 # Copy composer files first for better caching
 COPY composer.json composer.lock ./
 
-# Install composer dependencies (skip dev dependencies that require PHP 8.3+)
-RUN composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --no-dev || \
-    composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --no-dev
+# Install composer dependencies for development
+RUN composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader || true
 
 # Copy application files
 COPY . /app
