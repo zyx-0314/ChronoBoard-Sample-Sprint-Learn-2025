@@ -7,3 +7,18 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+    depends_on:
+      - mysql
+    environment:
+      - YII_ENV=dev
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    ports:
+      - '3306:3306'
+volumes:
+  mysql_data:
