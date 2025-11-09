@@ -13,6 +13,7 @@ Before starting, ensure you have:
 - Terminal/Command line access
 
 **Choose one of the following environments**:
+
 - **Option A**: Docker Desktop (for local development)
 - **Option B**: GitHub Codespaces (for cloud development)
 
@@ -23,6 +24,7 @@ Before starting, ensure you have:
 Best for developers who want local development with full control.
 
 **Advantages**:
+
 - Works offline
 - Full control over environment
 - Consistent across platforms
@@ -35,6 +37,7 @@ Best for developers who want local development with full control.
 Best for quick start and consistency across team.
 
 **Advantages**:
+
 - No local setup needed
 - Identical environment for all developers
 - Access from anywhere
@@ -103,6 +106,7 @@ Only use this if you're not using Docker or Codespaces.
 ### Install Required Software
 
 1. **PHP** (7.4 or higher)
+
    ```bash
    # Ubuntu/Debian
    sudo apt-get update
@@ -115,6 +119,7 @@ Only use this if you're not using Docker or Codespaces.
    ```
 
 2. **Composer** (PHP dependency manager)
+
    ```bash
    # Download and install Composer
    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -124,6 +129,7 @@ Only use this if you're not using Docker or Codespaces.
    ```
 
 3. **MySQL** (8.0 or higher)
+
    ```bash
    # Ubuntu/Debian
    sudo apt-get install mysql-server
@@ -155,25 +161,40 @@ npm install
 ### Configure Application
 
 1. **Copy environment file**
-   ```bash
-   cp .env.example .env
-   ```
+
+   - Windows:
+     Copy the `.env.example` and name it `.env`
+   - Linux
+     ```bash
+     cp .env.example .env
+     ```
 
 2. **Edit .env file**
-   ```bash
-   # Edit with your preferred editor
-   nano .env
-   # or
-   code .env
-   ```
+
+   - Windows
+     Edit file and add the needed tokens
+   - Linux
+     ```bash
+     # Edit with your preferred editor
+     nano .env
+     # or
+     code .env
+     ```
 
 3. **Set database credentials**
-   ```
+   ```.env
+   <!-- Example -->
    DB_HOST=localhost
    DB_NAME=chronoboard
    DB_USER=your_username
    DB_PASSWORD=your_password
    ```
+
+### Initialize Web App
+
+```bash
+php init
+```
 
 ### Initialize Database
 
@@ -290,6 +311,7 @@ SESSION_DRIVER=file          # file, cookie, database, redis
 ### Common Issues
 
 **Issue**: Composer dependencies fail to install
+
 ```bash
 # Solution: Update Composer and try again
 composer self-update
@@ -298,6 +320,7 @@ composer install
 ```
 
 **Issue**: MySQL connection refused
+
 ```bash
 # Solution: Check MySQL is running
 sudo systemctl status mysql
@@ -305,6 +328,7 @@ sudo systemctl start mysql
 ```
 
 **Issue**: Permission denied errors
+
 ```bash
 # Solution: Fix file permissions
 chmod -R 755 storage bootstrap/cache
@@ -312,6 +336,7 @@ chown -R www-data:www-data storage bootstrap/cache
 ```
 
 **Issue**: Port already in use
+
 ```bash
 # Solution: Find and kill process using port
 lsof -i :8000
@@ -354,11 +379,13 @@ Run this checklist to verify your setup:
 Once your environment is set up:
 
 1. **Review documentation**
+
    - Read [Development Workflow](../workflows/development-workflow.md)
    - Understand [Branch Strategy](../workflows/branch-strategy.md)
    - Study [Coding Standards](../../guidelines/coding-standards.md)
 
 2. **Explore the codebase**
+
    - Read existing code
    - Understand project structure
    - Review recent commits
