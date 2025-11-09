@@ -23,6 +23,8 @@ This project follows **KISS** (Keep It Simple, Stupid), **YAGNI** (You Aren't Go
 
 ## Documentation
 
+📖 **[Full Documentation Index](DOCUMENTATION.md)** - Complete guide to all documentation
+
 ### For Developers
 
 **Getting Started**
