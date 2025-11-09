@@ -1,9 +1,41 @@
-version: '2'
 services:
   php:
-    image: yiisoftware/yii2-php:7.4-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./:/app:delegated
     ports:
       - '8000:80'
+    depends_on:
+      - mysql
+    environment:
+      - YII_ENV=dev
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: /app
+          ignore:
+            - vendor/
+            - runtime/
+            - web/assets/
+            - .git/
+            - .env
+        - action: rebuild
+          path: composer.json
+        - action: rebuild
+          path: composer.lock
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    ports:
+      - '3306:3306'
+volumes:
+  mysql_data:
