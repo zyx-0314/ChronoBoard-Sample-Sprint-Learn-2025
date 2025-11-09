@@ -100,46 +100,26 @@ $this->title = 'ChronoBoard Mood Board';
                 - 2xl: 1536px
             -->
         <div class="gap-6 grid grid-cols-1 md:grid-cols-3">
+            <?= $this->render('components/cards/_colorCard', [
+                'title' => 'Primary Dark',
+                'hex' => '#272727',
+                'swatchClass' => 'bg-primary-dark',
+                'code' => 'bg-primary-dark',
+            ]) ?>
 
-            <!-- 
-                    COLOR CARD 1: Primary Dark
-                    Card structure:
-                    1. Outer div: Card container with shadow and rounded corners
-                    2. Color swatch: Shows the actual color
-                    3. Details: Name, hex code, and Tailwind class name
-                -->
-            <div class="shadow-lg rounded-card overflow-hidden">
-                <!-- Color swatch - Shows the actual color -->
-                <div class="bg-primary-dark h-32"></div>
+            <?= $this->render('components/cards/_colorCard', [
+                'title' => 'Primary Blue',
+                'hex' => '#90A9B7',
+                'swatchClass' => 'bg-primary-blue',
+                'code' => 'bg-primary-blue',
+            ]) ?>
 
-                <!-- Card content area -->
-                <div class="bg-white p-4">
-                    <h3 class="mb-2 font-display text-xl">Primary Dark</h3>
-                    <p class="font-body text-gray-600">#272727</p>
-                    <!-- Shows the Tailwind class to use -->
-                    <code class="bg-gray-100 px-2 py-1 rounded text-sm">bg-primary-dark</code>
-                </div>
-            </div>
-
-            <!-- COLOR CARD 2: Primary Blue -->
-            <div class="shadow-lg rounded-card overflow-hidden">
-                <div class="bg-primary-blue h-32"></div>
-                <div class="bg-white p-4">
-                    <h3 class="mb-2 font-display text-xl">Primary Blue</h3>
-                    <p class="font-body text-gray-600">#90A9B7</p>
-                    <code class="bg-gray-100 px-2 py-1 rounded text-sm">bg-primary-blue</code>
-                </div>
-            </div>
-
-            <!-- COLOR CARD 3: Primary Light -->
-            <div class="shadow-lg rounded-card overflow-hidden">
-                <div class="bg-primary-light h-32"></div>
-                <div class="bg-white p-4">
-                    <h3 class="mb-2 font-display text-xl">Primary Light</h3>
-                    <p class="font-body text-gray-600">#D2D8B3</p>
-                    <code class="bg-gray-100 px-2 py-1 rounded text-sm">bg-primary-light</code>
-                </div>
-            </div>
+            <?= $this->render('components/cards/_colorCard', [
+                'title' => 'Primary Light',
+                'hex' => '#D2D8B3',
+                'swatchClass' => 'bg-primary-light',
+                'code' => 'bg-primary-light',
+            ]) ?>
         </div>
     </section>
 
@@ -184,42 +164,25 @@ $this->title = 'ChronoBoard Mood Board';
         </h2>
 
         <div class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Simple Card -->
-            <div class="bg-white shadow-lg p-6 rounded-card">
-                <h3 class="mb-3 font-display font-bold text-primary-dark text-xl">
-                    Basic Card
-                </h3>
-                <p class="mb-4 font-body text-gray-600">
-                    A simple card with 5px rounded edges using the custom rounded-card class.
-                </p>
-                <code class="bg-gray-100 px-2 py-1 rounded text-xs">rounded-card</code>
-            </div>
+            <?= $this->render('components/cards/_simpleCard', [
+                'title' => 'Basic Card',
+                'body' => 'A simple card with 5px rounded edges using the custom rounded-card class.',
+                'code' => 'rounded-card',
+            ]) ?>
 
-            <!-- Card with Image Placeholder -->
-            <div class="bg-white shadow-lg rounded-card overflow-hidden">
-                <div class="flex justify-center items-center bg-primary-blue h-40">
-                    <span class="font-body text-white text-lg">Image Area</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="mb-2 font-display font-bold text-primary-dark text-xl">
-                        Card with Header
-                    </h3>
-                    <p class="font-body text-gray-600">
-                        Card with image header section and content below.
-                    </p>
-                </div>
-            </div>
+            <?= $this->render('components/cards/_imageCard', [
+                'title' => 'Card with Header',
+                'body' => 'Card with image header section and content below.',
+                'swatchClass' => 'bg-primary-blue',
+                'imageText' => 'Image Area',
+            ]) ?>
 
-            <!-- Colored Card -->
-            <div class="bg-primary-light shadow-lg p-6 rounded-card">
-                <h3 class="mb-3 font-display font-bold text-primary-dark text-xl">
-                    Colored Card
-                </h3>
-                <p class="mb-4 font-body text-gray-700">
-                    Card using custom background color from our palette.
-                </p>
-                <code class="bg-white px-2 py-1 rounded text-xs">bg-primary-light</code>
-            </div>
+            <?= $this->render('components/cards/_coloredCard', [
+                'title' => 'Colored Card',
+                'body' => 'Card using custom background color from our palette.',
+                'bgClass' => 'bg-primary-light',
+                'code' => 'bg-primary-light',
+            ]) ?>
         </div>
     </section>
 
@@ -231,26 +194,29 @@ $this->title = 'ChronoBoard Mood Board';
 
         <div class="bg-white shadow-lg p-8 rounded-card">
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <?= $this->render('components/_button', [
+                    'icon' => '✓',
+                    'label' => 'Success',
+                    'btnClass' => 'bg-soft-success hover:bg-green-200 px-6 py-3 border-2 border-soft-success-text rounded-card font-body font-semibold text-soft-success-text transition-colors duration-200'
+                ]) ?>
 
-                <!-- Success Button -->
-                <button class="bg-soft-success hover:bg-green-200 px-6 py-3 border-2 border-soft-success-text rounded-card font-body font-semibold text-soft-success-text transition-colors duration-200">
-                    ✓ Success
-                </button>
+                <?= $this->render('components/_button', [
+                    'icon' => 'ⓘ',
+                    'label' => 'Info',
+                    'btnClass' => 'bg-soft-info hover:bg-blue-200 px-6 py-3 border-2 border-soft-info-text rounded-card font-body font-semibold text-soft-info-text transition-colors duration-200'
+                ]) ?>
 
-                <!-- Info Button -->
-                <button class="bg-soft-info hover:bg-blue-200 px-6 py-3 border-2 border-soft-info-text rounded-card font-body font-semibold text-soft-info-text transition-colors duration-200">
-                    ⓘ Info
-                </button>
+                <?= $this->render('components/_button', [
+                    'icon' => '⚠',
+                    'label' => 'Warning',
+                    'btnClass' => 'bg-soft-warning hover:bg-yellow-200 px-6 py-3 border-2 border-soft-warning-text rounded-card font-body font-semibold text-soft-warning-text transition-colors duration-200'
+                ]) ?>
 
-                <!-- Warning Button -->
-                <button class="bg-soft-warning hover:bg-yellow-200 px-6 py-3 border-2 border-soft-warning-text rounded-card font-body font-semibold text-soft-warning-text transition-colors duration-200">
-                    ⚠ Warning
-                </button>
-
-                <!-- Error Button -->
-                <button class="bg-soft-error hover:bg-red-200 px-6 py-3 border-2 border-soft-error-text rounded-card font-body font-semibold text-soft-error-text transition-colors duration-200">
-                    ✕ Error
-                </button>
+                <?= $this->render('components/_button', [
+                    'icon' => '✕',
+                    'label' => 'Error',
+                    'btnClass' => 'bg-soft-error hover:bg-red-200 px-6 py-3 border-2 border-soft-error-text rounded-card font-body font-semibold text-soft-error-text transition-colors duration-200'
+                ]) ?>
 
             </div>
 
@@ -359,24 +325,8 @@ $this->title = 'ChronoBoard Mood Board';
                         placeholder="Enter description"></textarea>
                 </div>
 
-                <!-- Buttons -->
-                <div class="flex gap-4">
-                    <button
-                        type="submit"
-                        class="bg-primary-dark hover:bg-gray-800 px-6 py-2 rounded-card font-body font-semibold text-white transition-colors">
-                        Submit
-                    </button>
-                    <button
-                        type="reset"
-                        class="bg-primary-blue hover:bg-blue-400 px-6 py-2 rounded-card font-body font-semibold text-white transition-colors">
-                        Reset
-                    </button>
-                    <button
-                        type="button"
-                        class="bg-primary-light hover:bg-yellow-300 px-6 py-2 rounded-card font-body font-semibold text-primary-dark transition-colors">
-                        Cancel
-                    </button>
-                </div>
+                <!-- Buttons (rendered via component) -->
+                <?= $this->render('components/_buttonGroup') ?>
             </form>
         </div>
     </section>
