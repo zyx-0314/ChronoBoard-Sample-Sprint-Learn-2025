@@ -125,4 +125,23 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * Displays mood board page.
+     * 
+     * The Mood Board page is a learning guide that demonstrates:
+     * - Custom color palette implementation
+     * - Typography with custom fonts (Playfair Display & Source Sans Pro)
+     * - Card components with rounded edges
+     * - Soft color palette for alert buttons
+     * - Responsive grid layouts using Tailwind CSS
+     *
+     * @return string The rendered mood board view
+     */
+    public function actionMoodBoard()
+    {
+        // Render the mood-board view file located in views/site/mood-board.php
+        // This view demonstrates frontend design patterns and Tailwind CSS usage
+        return $this->render('mood-board');
+    }
 }
